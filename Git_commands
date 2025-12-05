@@ -1,0 +1,56 @@
+
+Create a new branch using Terminal
+Open Terminal in RStudio (bottom left) and run:
+git checkout -b new-branch-name
+Example:
+git checkout -b feature-clean-data
+This does two things:
+creates the branch
+switches to it
+Then push it to GitHub:
+git push -u origin feature-clean-data
+
+*********
+How to confirm you’re now on the new branch
+git branch
+You’ll see:
+  main
+* feature-clean-data
+The * shows the current branch.
+Or using RStudio Git pane — the branch name will show on the dropdown.
+********
+PUSH a FILE to GIT REMOTE
+METHOD 1 — Use the RStudio Git pane (easiest)
+Save your new file in RStudio.
+Go to the Git pane (top right).
+You will see your new file listed with a yellow “?” (untracked file).
+Tick the checkbox next to the file → it becomes staged.
+Click Commit.
+A window opens:
+Write a commit message, e.g.
+Add new script/file
+Click Commit.
+After committing, click Push (up arrow in the Git pane).
+Done. Your file is now on GitHub.
+********
+1. Delete a LOCAL branch
+First, switch to another branch (e.g., main), because you cannot delete the branch you are on:
+git checkout main
+Then delete the local branch:
+git branch -d branchname
+Use -D (capital D) if Git refuses because it’s not merged:
+git branch -D branchname
+✅ 2. Delete a REMOTE branch on GitHub
+git push origin --delete branchname
+or the older syntax (still works):
+git push origin :branchname
+🔍 Confirm deletion
+Local:
+git branch
+You should not see the branch anymore.
+Remote:
+git branch -r
+Or check on GitHub → "Branches" tab.
+
+
+git push -u origin kennenwerte_K 
