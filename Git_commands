@@ -11,6 +11,7 @@ Then push it to GitHub:
 git push -u origin feature-clean-data
 
 *********
+
 How to confirm you’re now on the new branch
 git branch
 You’ll see:
@@ -19,7 +20,7 @@ You’ll see:
 The * shows the current branch.
 Or using RStudio Git pane — the branch name will show on the dropdown.
 ********
-PUSH a FILE to GIT REMOTE
+PUSH a FILE to GIT LOCAL
 METHOD 1 — Use the RStudio Git pane (easiest)
 Save your new file in RStudio.
 Go to the Git pane (top right).
@@ -32,6 +33,12 @@ Add new script/file
 Click Commit.
 After committing, click Push (up arrow in the Git pane).
 Done. Your file is now on GitHub.
+********
+PUSH TO REMOTE
+
+git push origin branchname
+
+
 ********
 1. Delete a LOCAL branch
 First, switch to another branch (e.g., main), because you cannot delete the branch you are on:
@@ -53,4 +60,3 @@ git branch -r
 Or check on GitHub → "Branches" tab.
 
 
-git push -u origin kennenwerte_K 
