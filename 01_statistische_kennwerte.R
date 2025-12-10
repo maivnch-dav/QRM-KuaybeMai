@@ -40,3 +40,8 @@ kennwerte <- function(x) {
 # --- 5) Kennwerte berechnen
 kennwerte(guess$Q5_1_dicho)
 kennwerte(guess$support_index)
+
+# nominale Variable Q5.1
+table(guess$`Q5.1`)
+prop.table(table(guess$`Q5.1`))
+  
