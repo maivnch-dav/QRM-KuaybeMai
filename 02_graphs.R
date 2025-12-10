@@ -51,3 +51,4 @@ boxplot(
 #   die Unterschiede sind jedoch visuell moderat.
 
 
+
