@@ -1,13 +1,22 @@
 library(openxlsx)
 
-# --- 1) Daten einlesen
+# Datei einlesen
 guess <- read.xlsx("GUESSS.xlsx", sheet = 1)
 
-# --- 2) Q5.1 als dichotom (0/1)
+# Überblick über die Datenstruktur
+# ----------------------------------------------------------
+str(guess)
+summary(guess)
+
+
+# Dichotomisierung
 guess$Q5_1_dicho <- ifelse(
-  guess$`Q5.1` == 0, 0,
+  guess$`Q5.1` == 0, 
+  0,
   ifelse(guess$`Q5.1` %in% c(1, 2, 3), 1, NA)
 )
+
+
 
 # --- 3) Unterstützungsindex sicher numerisch
 guess$support_index <- rowMeans(
@@ -40,3 +49,6 @@ kennwerte <- function(x) {
 # --- 5) Kennwerte berechnen
 kennwerte(guess$Q5_1_dicho)
 kennwerte(guess$support_index)
+
+#MAI -> Varianz und Standardabweichung
+
