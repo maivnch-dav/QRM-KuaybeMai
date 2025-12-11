@@ -63,3 +63,12 @@ o Messung: Skala (mehrere Items, Likert-Antwortformat).
 o Anzahl Indikatoren: X (z.B. 3 oder 5, je nach gewählter Skala).
 o Skalenniveau: metrisch / intervallskaliert (Summen- oder Mittelwertskala).
 o Anmerkung: Diese Variable dient als abhängige Variable in unserem Projekt.
+
+
+
+Q2.2	Are you currently trying to start your own business / to become self-employed?	
+"  1 ""Yes""
+  0 ""No"""
+Q2.3	Are you already running your own business / are you already self-employed?	
+"  1 ""Yes""
+  0 ""No"""
