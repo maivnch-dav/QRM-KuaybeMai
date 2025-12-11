@@ -50,5 +50,12 @@ kennwerte <- function(x) {
 kennwerte(guess$Q5_1_dicho)
 kennwerte(guess$support_index)
 
+<<<<<<< HEAD
 #MAI -> Varianz und Standardabweichung
 
+=======
+# nominale Variable Q5.1
+table(guess$`Q5.1`)
+prop.table(table(guess$`Q5.1`))
+  
+>>>>>>> c53901550f64ecccf2913d6f79643dfe7da55990
