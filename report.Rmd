@@ -1,0 +1,143 @@
+---
+title: "Abgabe_sheet"
+author: "Kuaybe T, Mai Ng"
+date: "`r Sys.Date()`"
+output: 
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+fontsize: 11pt
+geometry: margin=2.5cm
+---
+
+**Kurs:** Quantitative Research Methods, HS25.<br> 
+**Team:** Kuayibe T, Mai Ng.<br> 
+**Projekt:** Familiärer unternehmerischer Hintergrund, soziale Unterstützung und Gründungsabsichten von Studierenden.<br> 
+**Repository.**<br>
+- URL: https://github.com/maivnch-dav/QRM-KuaybeMai.<br>
+- Branch: main.<br> 
+**Abgabe-Tag/Release:** v1.0.<br> 
+**Commit-Hash:** 9f3c1a2e7b6c4d… (kurz: 9f3c1a2).<br> 
+- Commit-Datum (lokale Zeitzone): 2025-10-20 13:42.<br> 
+**Artefakte im Repo (Abgabestand)**.<br> 
+- Bericht: outputs/report.pdf (Quelle: report.Rmd).<br>
+- Reproduzierbarkeit: renv.lock<br> 
+README.md (Render-Anleitung).<br>
+**Quellcode & Skripte (Zweck & Reihenfolge).**<br> 
+1) R/01_clean.R — Datenbereinigung.<br> 
+2) R/02_functions.R — Hilfsfunktionen.<br>
+3) R/03_model.R — Modell-Fits & Diagnostik.<br> 
+4) R/04_figures.R — Abbildungen / Grafiken.<br> 
+5) R/run_all.R — Master-Skript (führt 01→04 aus).<br><br><br>
+
+**1. Einleitung**<br>
+
+Entrepreneurship gilt als zentraler Treiber wirtschaftlicher Innovation und Beschäftigung. In der Entrepreneurship-Forschung wird zunehmend untersucht, welche individuellen und sozialen Faktoren die Gründungsabsichten von Studierenden beeinflussen. Neben persönlichen Eigenschaften rücken insbesondere familiäre Vorbilder sowie wahrgenommene soziale Unterstützung in den Fokus empirischer Analysen.<br>
+
+Ziel dieses Projekts ist es, den Zusammenhang zwischen familiärem unternehmerischem Hintergrund, erwarteter sozialer Unterstützung und den Gründungsabsichten von Studierenden quantitativ zu untersuchen. Die Analyse basiert auf Umfragedaten und wurde vollständig mit R durchgeführt, um Transparenz und Reproduzierbarkeit sicherzustellen.<br><br>
+
+**2. Forschungsfragen und Hypothesen**<br>
+**Forschungsfragen**<br>
+
+*RQ (Hauptfrage):*<br>
+Wie stehen familiäre unternehmerische Hintergründe und erwartete soziale Unterstützung im Zusammenhang mit den Gründungsabsichten von Studierenden?<br>
+
+*RQ1:*<br>
+Unterscheiden sich die Gründungsabsichten je nach familiärem unternehmerischem Hintergrund (Selbstständigkeit bzw. Mehrheitsbeteiligung der Eltern)?<br>
+
+*RQ2:*<br>
+Hängt die erwartete Unterstützung durch Familie, Freunde und Kommiliton:innen (Q6.2_1–Q6.2_3) mit den Gründungsabsichten zusammen?<br>
+
+*Hypothesen*<br>
+
+*H1:* Studierende mit selbstständigen oder unternehmerisch tätigen Eltern weisen höhere Gründungsabsichten auf als Studierende ohne solchen Hintergrund.<br>
+
+*H2:* Eine höhere erwartete soziale Unterstützung steht in einem positiven Zusammenhang mit den Gründungsabsichten.<br><br>
+
+**3. Daten und Variablen**<br>
+*3.1 Datengrundlage*<br>
+
+Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Datensatz umfasst Angaben zu:<br>
+
+- soziodemografischen Merkmalen<br>
+
+- familiärem unternehmerischem Hintergrund<br>
+
+- wahrgenommener sozialer Unterstützung<br>
+
+- Gründungsabsichten<br>
+
+*3.2 Zentrale Variablen* <br>
+
+Abhängige Variable: Gründungsabsicht (metrisch skaliert)<br>
+
+Unabhängige Variablen:<br>
+
+- Familiärer unternehmerischer Hintergrund (dichotom) 
+
+- Erwartete Unterstützung durch Familie (Q6.2_1) 
+
+- Freunde (Q6.2_2) 
+
+- Kommiliton:innen (Q6.2_3)<br> <br>
+
+**4. Methodisches Vorgehen**<br>
+*4.1 Datenbereinigung*<br>
+
+Die Datenbereinigung erfolgte im Skript 01_clean.R und umfasste:<br>
+
+- Entfernung unvollständiger Beobachtungen
+
+- Rekodierung kategorialer Variablen
+
+- Erstellung analytisch geeigneter Skalen
+
+```{r}
+# source("R/01_clean.R")
+```
+
+**4.2 Analytische Strategie**<br>
+
+Zur Beantwortung der Forschungsfragen wurden folgende Verfahren eingesetzt:<br>
+
+- Deskriptive Statistik
+
+- Gruppenvergleiche (t-Test)
+
+- Lineare Regressionsmodelle
+
+Hilfsfunktionen wurden in 02_functions.R ausgelagert, um Redundanzen zu vermeiden.<br>
+```{r}
+#source("R/02_functions.R")
+```
+
+
+**5. Ergebnisse**<br>
+*5.1 Deskriptive Ergebnisse*<br>
+
+Studierende mit familiärem unternehmerischem Hintergrund berichten im Durchschnitt höhere Gründungsabsichten als Studierende ohne entsprechenden Hintergrund.<br>
+
+*5.2 Modellschätzungen*<br>
+
+Die Regressionsanalyse zeigt:<br>
+
+- einen signifikant positiven Effekt des familiären unternehmerischen Hintergrunds
+
+- einen starken positiven Zusammenhang zwischen erwarteter sozialer Unterstützung und Gründungsabsichten
+```{r}
+#source("R/03_model.R")
+```
+
+*5.3 Visualisierung*<br>
+
+Die zentralen Ergebnisse werden grafisch dargestellt (z. B. Mittelwertvergleiche und Regressionsplots).<br>
+```{r}
+#source("R/04_figures.R")
+```
+
+**6. Diskussion**<br>
+
+**7. Limitationen**<br>
+
+**8. Fazit**
