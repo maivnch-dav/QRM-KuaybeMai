@@ -1,0 +1,34 @@
+---
+title: "Abgabe_sheet"
+author: "<Team / Autor:innen>"
+date: "`r Sys.Date()`"
+output: html_document  # oder pdf (hierzu muss LaTeX installiert sein)
+fontsize: 11pt
+geometry: margin=2.5cm
+---
+
+
+**Kurs:** Quantitative Research Methods, HS25  
+**Team / Autor:innen:** <Namen>  
+**Projekt:** <Titel>
+
+## Repository
+- URL: <https://github.com/org/projekt>  
+- Branch: `main`  
+- **Abgabe-Tag/Release:** `v1.0`  
+- **Commit-Hash:** `9f3c1a2e7b6c4d…` (kurz: `9f3c1a2`)  
+- Commit-Datum (lokale Zeitzone): 2025-10-20 13:42
+
+## Artefakte im Repo (Abgabestand)
+- Bericht: `outputs/report.pdf` (Quelle: `report.Rmd`)  
+- Reproduzierbarkeit: `renv.lock`, `README.md` (Render-Anleitung)
+
+## Quellcode & Skripte (Zweck & Reihenfolge)
+1) `R/01_clean.R` — Datenbereinigung
+2) `R/02_functions.R` — Hilfsfunktionen
+3) `R/03_model.R` — Modell-Fits & Diagnostik
+4) `R/04_figures.R` — Abbildungen / Grafiken
+5) `R/run_all.R` — Master-Skript (führt 01→04 aus) *(optional)*
+
+
+*Hinweis:* Repo ist **privat**; Dozierenden-Zugriff für **CarolineS-D** ist erteilt.

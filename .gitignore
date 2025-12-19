@@ -1,5 +1,16 @@
-.Rproj.user
+# RStudio / R
+.Rproj.user/
 .Rhistory
 .RData
 .Ruserdata
+
 ~.xlsx
+
+
+# macOS
+.DS_Store
+
+# Microsoft Office temp files
+~$*.docx
+~$*.xlsx
+
