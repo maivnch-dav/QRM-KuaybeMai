@@ -112,3 +112,56 @@ barplot(
 
 
 
+# --- ZUSATZ: Vergleich des Unterstützungsindex nach Selbstständigkeit der Eltern (Q5.1) ---
+
+# Ziel:
+# Dieser Abschnitt vergleicht den Unterstützungsindex (support_index) zwischen zwei Gruppen aus Q5.1:
+# (a) kein Elternteil selbstständig
+# (b) mind. ein Elternteil selbstständig
+
+# Data filtern
+df_plot <- guess[!is.na(guess$Q5_1_dicho_f) & !is.na(guess$support_index),
+                 c("Q5_1_dicho_f", "support_index")]
+
+df_plot <- as.data.frame(df_plot)
+df_plot$Q5_1_dicho_f <- droplevels(df_plot$Q5_1_dicho_f)
+
+# Kurzere Labels für die Grafik (nur für df_plot)
+
+df_plot$Q5_1_dicho_f <- factor(
+  df_plot$Q5_1_dicho_f,
+  levels = levels(df_plot$Q5_1_dicho_f),
+  labels = c("Kein Elternteil", "Mind. 1 Elternteil")
+)
+
+
+
+print(table(df_plot$Q5_1_dicho_f))
+
+
+# Boxplot: Verteilung des Unterstützungsindex in beiden Gruppen vergleichen
+par(mar = c(14, 5, 4, 2) + 0.1)
+boxplot(
+  support_index ~ Q5_1_dicho_f,
+  data = df_plot,
+  main = "Unterstützungsindex nach Selbstständigkeit der Eltern",
+  xlab = "",
+  ylab = "Unterstützungsindex (1–7)",
+  las = 2
+)
+
+stripchart(
+  support_index ~ Q5_1_dicho_f,
+  data = df_plot,
+  vertical = TRUE,
+  method = "jitter",
+  pch = 16,
+  cex = 0.3,
+  add = TRUE
+)
+
+wt <- wilcox.test(support_index ~ Q5_1_dicho_f, data = df_plot)
+mtext(paste0("Wilcoxon p = ", signif(wt$p.value, 3)), side = 3, line = 0.2, cex = 0.9)
+
+
+
