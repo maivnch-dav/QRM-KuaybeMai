@@ -54,26 +54,26 @@ Entrepreneurship gilt als zentraler Treiber wirtschaftlicher Innovation und Besc
 
 Ziel dieses Projekts ist es, den Zusammenhang zwischen familiärem unternehmerischem Hintergrund, erwarteter sozialer Unterstützung und den Gründungsabsichten von Studierenden quantitativ zu untersuchen. Die Analyse basiert auf Umfragedaten und wurde vollständig mit R durchgeführt, um Transparenz und Reproduzierbarkeit sicherzustellen.<br><br>
 
-**2. Forschungsfragen und Hypothesen**<br>
-**Forschungsfragen**<br>
+# 2. Forschungsfragen und Hypothesen
+## Forschungsfragen
 
-*RQ (Hauptfrage):*<br>
+### RQ (Hauptfrage):
 Wie stehen familiäre unternehmerische Hintergründe und erwartete soziale Unterstützung im Zusammenhang mit den Gründungsabsichten von Studierenden?<br>
 
-*RQ1:*<br>
+### RQ1
 Unterscheiden sich die Gründungsabsichten je nach familiärem unternehmerischem Hintergrund (Selbstständigkeit bzw. Mehrheitsbeteiligung der Eltern)?<br>
 
-*RQ2:*<br>
+### RQ2
 Hängt die erwartete Unterstützung durch Familie, Freunde und Kommiliton:innen (Q6.2_1–Q6.2_3) mit den Gründungsabsichten zusammen?<br>
 
-*Hypothesen*<br>
+## Hypothesen
 
 *H1:* Studierende mit selbstständigen oder unternehmerisch tätigen Eltern weisen höhere Gründungsabsichten auf als Studierende ohne solchen Hintergrund.<br>
 
 *H2:* Eine höhere erwartete soziale Unterstützung steht in einem positiven Zusammenhang mit den Gründungsabsichten.<br><br>
 
-**3. Daten und Variablen**<br>
-*3.1 Datengrundlage*<br>
+# 3. Daten und Variablen**<br>
+## 3.1 Datengrundlage
 
 Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Datensatz umfasst Angaben zu:<br>
 
@@ -85,7 +85,8 @@ Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Daten
 
 - Gründungsabsichten<br>
 
-*3.2 Zentrale Variablen* <br>
+## 3.2 Zentrale Variablen
+
 
 Abhängige Variable: Gründungsabsicht (metrisch skaliert)<br>
 
@@ -99,8 +100,9 @@ Unabhängige Variablen:<br>
 
 - Kommiliton:innen (Q6.2_3)<br> <br>
 
-**4. Methodisches Vorgehen**<br>
-*4.1 Datenbereinigung*<br>
+# 4. Methodisches Vorgehen
+## 4.1 Datenbereinigung
+
 
 Die Datenbereinigung erfolgte im Skript 01_clean.R und umfasste:<br>
 
@@ -113,8 +115,8 @@ Die Datenbereinigung erfolgte im Skript 01_clean.R und umfasste:<br>
 ```{r}
 # source("R/01_clean.R")
 ```
+## 4.2 Analytische Strategie
 
-**4.2 Analytische Strategie**<br>
 
 Zur Beantwortung der Forschungsfragen wurden folgende Verfahren eingesetzt:<br>
 
@@ -129,13 +131,12 @@ Hilfsfunktionen wurden in 02_functions.R ausgelagert, um Redundanzen zu vermeide
 #source("R/02_functions.R")
 ```
 
-
-**5. Ergebnisse**<br>
-*5.1 Deskriptive Ergebnisse*<br>
+# 5. Ergebnisse
+## 5.1 Deskriptive Ergebnisse
 
 Studierende mit familiärem unternehmerischem Hintergrund berichten im Durchschnitt höhere Gründungsabsichten als Studierende ohne entsprechenden Hintergrund.<br>
 
-*5.2 Modellschätzungen*<br>
+## 5.2 Modellschätzungen
 
 Die Regressionsanalyse zeigt:<br>
 
@@ -146,15 +147,13 @@ Die Regressionsanalyse zeigt:<br>
 #source("R/03_model.R")
 ```
 
-*5.3 Visualisierung*<br>
+## 5.3 Visualisierung
 
 Die zentralen Ergebnisse werden grafisch dargestellt (z. B. Mittelwertvergleiche und Regressionsplots).<br>
 ```{r}
 #source("R/04_figures.R")
 ```
 
-**6. Diskussion**<br>
-
-**7. Limitationen**<br>
-
-**8. Fazit**
+# 6. Diskussion
+# 7. Limitationen
+# 8. Fazit
