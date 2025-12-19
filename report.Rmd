@@ -11,26 +11,27 @@ fontsize: 11pt
 geometry: margin=2.5cm
 ---
 
-**Kurs:** Quantitative Research Methods, HS25.<br> 
-**Team:** Kuayibe T, Mai Ng.<br> 
-**Projekt:** Familiärer unternehmerischer Hintergrund, soziale Unterstützung und Gründungsabsichten von Studierenden.<br> 
-**Repository.**<br>
-- URL: https://github.com/maivnch-dav/QRM-KuaybeMai.<br>
-- Branch: - Arbeits-Branch: Projektbericht (Merge via Pull Request nach main).<br>
+**Kurs:** Quantitative Research Methods, HS25  
+**Team:** Kuayibe T, Mai Ng  
+**Projekt:** Familiärer unternehmerischer Hintergrund, soziale Unterstützung und Gründungsabsichten von Studierenden  
 
-**Abgabe-Tag/Release:** v1.0.<br> 
-**Commit-Hash:** 9f3c1a2e7b6c4d… (kurz: 9f3c1a2).<br> 
-- Commit-Datum (lokale Zeitzone): 2025-10-20 13:42.<br> 
-**Artefakte im Repo (Abgabestand)**.<br> 
-- Bericht: outputs/report.pdf (Quelle: report.Rmd).<br>
-- Reproduzierbarkeit: renv.lock<br> 
-README.md (Render-Anleitung).<br>
-**Quellcode & Skripte (Zweck & Reihenfolge).**<br> 
-1) R/01_clean.R — Datenbereinigung.<br> 
-2) R/02_functions.R — Hilfsfunktionen.<br>
-3) R/03_model.R — Modell-Fits & Diagnostik.<br> 
-4) R/04_figures.R — Abbildungen / Grafiken.<br> 
-5) R/run_all.R — Master-Skript (führt 01→04 aus).<br><br><br>
+**Repository:**  
+- URL: https://github.com/maivnch-dav/QRM-KuaybeMai  
+- Arbeits-Branch: Projektbericht (Merge via Pull Request nach main)
+
+**Abgabe-Tag/Release:** v1.0  
+
+**Artefakte im Repo (Abgabestand):**  
+- Bericht: outputs/report.pdf (Quelle: report.Rmd)  
+- Reproduzierbarkeit: renv.lock  
+- README.md (Render-Anleitung)  
+
+**Quellcode & Skripte (Zweck & Reihenfolge):**  
+1. `R/01_clean.R` — Datenbereinigung  
+2. `R/02_functions.R` — Hilfsfunktionen  
+3. `R/03_model.R` — Modell-Fits & Diagnostik  
+4. `R/04_figures.R` — Abbildungen / Grafiken  
+5. `R/run_all.R` — Master-Skript (führt 01→04 aus)  
 
 ```{r git-info, echo=FALSE}
 get_git <- function(cmd) {
