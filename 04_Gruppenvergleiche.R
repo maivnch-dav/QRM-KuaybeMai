@@ -124,3 +124,134 @@ print(wt)
 # Das 95%-Konfidenzintervall für die Lageverschiebung liegt bei [-0.333; -0.00008]
 # und schließt 0 nicht ein -> Hinweis auf einen Unterschied in der Lage/Verteilung.
 
+
+
+
+# ============================================================
+# 8) One-Way ANOVA (4 Gruppen): support_index ~ Q5.1
+# ============================================================
+# Ziel: Vergleich des Unterstützungsindex zwischen 4 Gruppen:
+# 0 = No, 1 = Yes, father, 2 = Yes, mother, 3 = Yes, both
+
+# Q5.1 sicher als numerisch (falls als Text eingelesen)
+guess$Q5_1_num <- suppressWarnings(as.numeric(guess$`Q5.1`))
+
+# 4 Gruppen als Faktor mit klaren Labels (kurz für Grafiken)
+guess$Q5_1_4grp <- factor(
+  guess$Q5_1_num,
+  levels = c(0, 1, 2, 3),
+  labels = c("No", "Yes: father", "Yes: mother", "Yes: both")
+)
+
+# Daten filtern (NA entfernen)
+df_aov <- guess[!is.na(guess$Q5_1_4grp) & !is.na(guess$support_index),
+                c("Q5_1_4grp", "support_index")]
+df_aov <- as.data.frame(df_aov)
+df_aov$Q5_1_4grp <- droplevels(df_aov$Q5_1_4grp)
+
+cat("\n--- Gruppengrößen (ANOVA) ---\n")
+print(table(df_aov$Q5_1_4grp))
+
+# Deskriptive Statistik pro Gruppe (n, mean, sd)
+n_by4    <- tapply(df_aov$support_index, df_aov$Q5_1_4grp, length)
+mean_by4 <- tapply(df_aov$support_index, df_aov$Q5_1_4grp, mean)
+sd_by4   <- tapply(df_aov$support_index, df_aov$Q5_1_4grp, sd)
+
+desc_aov <- data.frame(
+  Gruppe = names(n_by4),
+  n      = as.integer(n_by4),
+  mean   = round(as.numeric(mean_by4), 3),
+  sd     = round(as.numeric(sd_by4), 3)
+)
+
+cat("\n--- Deskriptive Statistik (ANOVA) ---\n")
+print(desc_aov)
+
+# ANOVA durchführen
+fit_aov <- aov(support_index ~ Q5_1_4grp, data = df_aov)
+aov_sum <- summary(fit_aov)
+
+cat("\n--- One-Way ANOVA Ergebnis ---\n")
+print(aov_sum)
+
+# p-Wert für Plot-Titel extrahieren
+p_aov <- aov_sum[[1]][["Pr(>F)"]][1]
+
+# Post-hoc (TukeyHSD)
+tuk <- TukeyHSD(fit_aov)
+cat("\n--- Post-hoc (TukeyHSD) ---\n")
+print(tuk)
+
+# Tukey in Dataframe (für klare CI-Grafik)
+tuk_df <- as.data.frame(tuk$Q5_1_4grp)
+tuk_df$comparison <- rownames(tuk_df)
+tuk_df$sig <- tuk_df$`p adj` < 0.05
+
+
+# ============================================================
+# 9) Grafiken (optimiert für Lesbarkeit)
+# ============================================================
+
+# --- Grafik 1: Boxplot + Jitter (Verteilungen sichtbar) ---
+op <- par(no.readonly = TRUE)
+par(mar = c(8, 5, 4, 2) + 0.1)
+
+boxplot(
+  support_index ~ Q5_1_4grp,
+  data = df_aov,
+  ylim = c(1, 7),
+  main = paste0("support_index nach Q5.1 (ANOVA p = ", signif(p_aov, 3), ")"),
+  xlab = "",
+  ylab = "Unterstützungsindex (1–7)",
+  las  = 2
+)
+
+set.seed(42)
+stripchart(
+  support_index ~ Q5_1_4grp,
+  data = df_aov,
+  vertical = TRUE,
+  method = "jitter",
+  pch = 16,
+  cex = 0.25,
+  add = TRUE
+)
+
+# --- Grafik 2: TukeyHSD als CI-Dotchart ---
+
+ord <- order(tuk_df$diff)
+par(mar = c(8, 8, 4, 2) + 0.1)
+ypos <- seq_along(ord)
+
+plot(
+  tuk_df$diff[ord], ypos,
+  xlim = range(c(tuk_df$lwr, tuk_df$upr)),
+  pch = 16,
+  yaxt = "n",
+  xlab = "Differenz der Mittelwerte (A - B)",
+  ylab = "",
+  main = "TukeyHSD: Paarvergleiche (95%-KI)"
+)
+axis(2, at = ypos, labels = tuk_df$comparison[ord], las = 2)
+segments(tuk_df$lwr[ord], ypos, tuk_df$upr[ord], ypos)
+abline(v = 0, lty = 2)
+
+text(
+  x = par("usr")[2],
+  y = ypos,
+  labels = ifelse(tuk_df$sig[ord], "sig", "n.s."),
+  pos = 2,
+  cex = 0.9
+)
+
+par(op[names(op) != "pin"])
+
+
+
+# Interpretation (ANOVA + TukeyHSD):
+# Die einfaktorielle ANOVA zeigt, dass sich der support_index zwischen den vier Q5.1-Gruppen insgesamt unterscheidet (p < 0.001).
+# Die Tukey-Paarvergleiche präzisieren: „Yes: father“ und „Yes: both“ liegen signifikant über „No“ (95%-KI der Differenz komplett > 0).
+# Zusätzlich ist „Yes: both“ signifikant höher als „Yes: mother“ (p_adj < 0.01).
+# Die übrigen Vergleiche sind nicht signifikant (Konfidenzintervalle schneiden 0 → n.s.).
+# Insgesamt deutet das auf tendenziell höhere Unterstützungswerte hin, wenn (v. a. beide) Elternteile selbstständig sind.
+
