@@ -4,9 +4,13 @@
 .RData
 .Ruserdata
 
+~.xlsx
+
+
 # macOS
 .DS_Store
 
 # Microsoft Office temp files
 ~$*.docx
 ~$*.xlsx
+
