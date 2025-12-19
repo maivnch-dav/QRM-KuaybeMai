@@ -91,3 +91,36 @@ cat("95%-KI (Differenz): [", round(tt$conf.int[1], 3), ",", round(tt$conf.int[2]
 # Gruppe „Mind. 1 Elternteil“ hat höheren Mittelwert als „Kein Elternteil“ (5.62 vs. 5.42),
 # 95%-KI der Differenz (Kein − Mind.1): [-0.251; -0.158].
 
+
+
+# ============================================================
+# 7) Wilcoxon Rangsummentest (Mann–Whitney U)
+# ============================================================
+# Identisch bleibt:
+# - Daten einlesen
+# - Gruppenvariable (Q5.1 -> 2 Gruppen)
+# - support_index berechnen
+# - NA filtern (df_test)
+# Ändert sich:
+# - statt t-Test wird Wilcoxon Rangsummentest genutzt (robust, keine Normalverteilung nötig)
+
+wt <- wilcox.test(
+  support_index ~ Q5_1_dicho_f,
+  data = df_test,
+  exact = FALSE,
+  conf.int = TRUE
+)
+
+cat("\n--- Wilcoxon Rangsummentest Ergebnis ---\n")
+print(wt)
+
+# Zusammenfassung (kurz)
+# Wilcoxon: signifikanter Unterschied, wenn p < 0.05.
+# Teststatistik W wird ausgegeben; Interpretation bezieht sich auf Lage/Verteilung.
+
+# Interpretation (Wilcoxon):
+# Der Wilcoxon-Rangsummentest zeigt einen statistisch signifikanten Unterschied
+# im Unterstützungsindex zwischen den beiden Gruppen (W = 9348404, p < 2.2e-16).
+# Das 95%-Konfidenzintervall für die Lageverschiebung liegt bei [-0.333; -0.00008]
+# und schließt 0 nicht ein -> Hinweis auf einen Unterschied in der Lage/Verteilung.
+
