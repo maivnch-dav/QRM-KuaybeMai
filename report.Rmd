@@ -16,7 +16,8 @@ geometry: margin=2.5cm
 **Projekt:** Familiärer unternehmerischer Hintergrund, soziale Unterstützung und Gründungsabsichten von Studierenden.<br> 
 **Repository.**<br>
 - URL: https://github.com/maivnch-dav/QRM-KuaybeMai.<br>
-- Branch: main.<br> 
+- Branch: - Arbeits-Branch: Projektbericht (Merge via Pull Request nach main).<br>
+
 **Abgabe-Tag/Release:** v1.0.<br> 
 **Commit-Hash:** 9f3c1a2e7b6c4d… (kurz: 9f3c1a2).<br> 
 - Commit-Datum (lokale Zeitzone): 2025-10-20 13:42.<br> 
