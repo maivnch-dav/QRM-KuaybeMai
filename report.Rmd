@@ -72,7 +72,7 @@ Hängt die erwartete Unterstützung durch Familie, Freunde und Kommiliton:innen 
 
 *H2:* Eine höhere erwartete soziale Unterstützung steht in einem positiven Zusammenhang mit den Gründungsabsichten.<br><br>
 
-# 3. Daten und Variablen**<br>
+# 3. Daten und Variablen
 ## 3.1 Datengrundlage
 
 Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Datensatz umfasst Angaben zu:<br>
