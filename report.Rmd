@@ -47,14 +47,14 @@ cat("**Rendered from branch:** ", ifelse(is.na(branch), "N/A", branch),
     "  \n**Render time:** ", time, "\n")
 ```
 
-# 1. Einleitung
+# Einleitung
 
 
 Entrepreneurship gilt als zentraler Treiber wirtschaftlicher Innovation und Beschäftigung. In der Entrepreneurship-Forschung wird zunehmend untersucht, welche individuellen und sozialen Faktoren die Gründungsabsichten von Studierenden beeinflussen. Neben persönlichen Eigenschaften rücken insbesondere familiäre Vorbilder sowie wahrgenommene soziale Unterstützung in den Fokus empirischer Analysen.<br>
 
 Ziel dieses Projekts ist es, den Zusammenhang zwischen familiärem unternehmerischem Hintergrund, erwarteter sozialer Unterstützung und den Gründungsabsichten von Studierenden quantitativ zu untersuchen. Die Analyse basiert auf Umfragedaten und wurde vollständig mit R durchgeführt, um Transparenz und Reproduzierbarkeit sicherzustellen.<br><br>
 
-# 2. Forschungsfragen und Hypothesen
+# Forschungsfragen und Hypothesen
 ## Forschungsfragen
 
 ### RQ (Hauptfrage):
@@ -68,12 +68,12 @@ Hängt die erwartete Unterstützung durch Familie, Freunde und Kommiliton:innen 
 
 ## Hypothesen
 
-*H1:* Studierende mit selbstständigen oder unternehmerisch tätigen Eltern weisen höhere Gründungsabsichten auf als Studierende ohne solchen Hintergrund.<br>
+#H1: Studierende mit selbstständigen oder unternehmerisch tätigen Eltern weisen höhere Gründungsabsichten auf als Studierende ohne solchen Hintergrund.<br>
 
-*H2:* Eine höhere erwartete soziale Unterstützung steht in einem positiven Zusammenhang mit den Gründungsabsichten.<br><br>
+#H2: Eine höhere erwartete soziale Unterstützung steht in einem positiven Zusammenhang mit den Gründungsabsichten.<br><br>
 
-# 3. Daten und Variablen
-## 3.1 Datengrundlage
+# Daten und Variablen
+## Datengrundlage
 
 Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Datensatz umfasst Angaben zu:<br>
 
@@ -85,7 +85,7 @@ Die Analyse basiert auf einem standardisierten Studierendenfragebogen. Der Daten
 
 - Gründungsabsichten<br>
 
-## 3.2 Zentrale Variablen
+## Zentrale Variablen
 
 
 Abhängige Variable: Gründungsabsicht (metrisch skaliert)<br>
@@ -100,8 +100,8 @@ Unabhängige Variablen:<br>
 
 - Kommiliton:innen (Q6.2_3)<br> <br>
 
-# 4. Methodisches Vorgehen
-## 4.1 Datenbereinigung
+# Methodisches Vorgehen
+## Datenbereinigung
 
 
 Die Datenbereinigung erfolgte im Skript 01_clean.R und umfasste:<br>
@@ -115,7 +115,7 @@ Die Datenbereinigung erfolgte im Skript 01_clean.R und umfasste:<br>
 ```{r}
 # source("R/01_clean.R")
 ```
-## 4.2 Analytische Strategie
+## Analytische Strategie
 
 
 Zur Beantwortung der Forschungsfragen wurden folgende Verfahren eingesetzt:<br>
@@ -131,12 +131,12 @@ Hilfsfunktionen wurden in 02_functions.R ausgelagert, um Redundanzen zu vermeide
 #source("R/02_functions.R")
 ```
 
-# 5. Ergebnisse
-## 5.1 Deskriptive Ergebnisse
+#  Ergebnisse
+## Deskriptive Ergebnisse
 
 Studierende mit familiärem unternehmerischem Hintergrund berichten im Durchschnitt höhere Gründungsabsichten als Studierende ohne entsprechenden Hintergrund.<br>
 
-## 5.2 Modellschätzungen
+## Modellschätzungen
 
 Die Regressionsanalyse zeigt:<br>
 
@@ -147,13 +147,13 @@ Die Regressionsanalyse zeigt:<br>
 #source("R/03_model.R")
 ```
 
-## 5.3 Visualisierung
+## Visualisierung
 
 Die zentralen Ergebnisse werden grafisch dargestellt (z. B. Mittelwertvergleiche und Regressionsplots).<br>
 ```{r}
 #source("R/04_figures.R")
 ```
 
-# 6. Diskussion
-# 7. Limitationen
-# 8. Fazit
+# Diskussion
+# Limitationen
+# Fazit
